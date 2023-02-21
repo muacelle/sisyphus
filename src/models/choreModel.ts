@@ -2,14 +2,14 @@ import mongoose from 'mongoose'
 
 export interface IChores {
     name: string
-    frequency: string
+    frequency: number
     lastCompleted: Date
     nextTime: Date
 }
 
 const choresSchema: mongoose.Schema<IChores> = new mongoose.Schema({
-    name: String,
-    frequency: Number,
+    name: { type: String, required: true },
+    frequency: { type: Number, required: true },
     lastCompleted: Date,
     nextTime: Date
 })
