@@ -3,19 +3,19 @@ import { HydratedDocument } from 'mongoose'
 import { Chores, IChores } from '../models/choreModel'
 import { getChore } from '../../middleware/getChore'
 import { Request, Response } from 'express'
-import { add, parse, parseISO, parseJSON, setDefaultOptions, Locale } from 'date-fns'
+import { add, parse, setDefaultOptions } from 'date-fns'
 import brazilianLocale from 'date-fns/locale/pt-BR'
 export const router = express.Router()
 
-/*setDefaultOptions({
-    locale: ptBR
-})*/
+setDefaultOptions({
+    locale: brazilianLocale
+})
 
 // New Chore
 router.post('/', async (req: Request, res: IChoreResponse) => {
 
     let today: Date = new Date()
-    let lastTime: Date = (req.body.lastCompleted == null) ? today : parse(req.body.lastCompleted, 'dd/MM/yyyy', new Date(), { locale: brazilianLocale });
+    let lastTime: Date = (req.body.lastCompleted == null) ? today : parse(req.body.lastCompleted, 'dd/MM/yyyy', new Date());
     const chore: HydratedDocument<IChores> = new Chores({
         name: req.body.name, 
         frequency: req.body.frequency, 
