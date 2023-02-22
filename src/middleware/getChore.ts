@@ -1,5 +1,5 @@
 import { HydratedDocument } from 'mongoose'
-import { Chores, IChores } from '../src/models/choreModel'
+import { Chores, IChores } from '../models/choreModel'
 
 
 export async function getChore(req, res, next) {

@@ -1,7 +1,7 @@
 import express from 'express'
 import { HydratedDocument } from 'mongoose'
 import { Chores, IChores } from '../models/choreModel'
-import { getChore } from '../../middleware/getChore'
+import { getChore } from '../middleware/getChore'
 import { Request, Response } from 'express'
 import { add, parse, setDefaultOptions } from 'date-fns'
 import brazilianLocale from 'date-fns/locale/pt-BR'
